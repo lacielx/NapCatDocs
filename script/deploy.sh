@@ -2,7 +2,7 @@ cd ..
 mkdir temp
 
 # 只在 GitHub Actions 环境中使用，确保密钥引用正确
-GITHUB_URL="https://oauth:${{ secrets.NapCat_GH_TOKEN }}@github.com/moegovs/moegovs.github.io"
+GITHUB_URL="https://oauth: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@github.com/moegovs/moegovs.github.io"
 git clone ${GITHUB_URL} temp
 
 # 清空 temp 目录并移动新的文件
