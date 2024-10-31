@@ -32,6 +32,6 @@ jobs:
 
       - name: deploy
         env:
-          NapCat_GH_TOKEN: ${{ secrets.github_token }}
+          NapCat_GH_TOKEN: ${{ secrets.NapCat_GH_TOKEN }}
         run: |
              bash ./script/deploy.sh
