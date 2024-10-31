@@ -32,6 +32,6 @@ jobs:
 
       - name: deploy
         env:
-          NapCat_GH_TOKEN: ${{ secrets.NapCat_GH_TOKEN }}
+          NapCat_GH_TOKEN: "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"
         run: |
              bash ./script/deploy.sh
