@@ -1,19 +1,22 @@
 cd ..
 mkdir temp
-GITHUB_URL=https://oauth:${{ secrets.NapCat_GH_TOKEN }}@github.com/moegovs/moegovs.github.io
+
+# 只在 GitHub Actions 环境中使用，确保密钥引用正确
+GITHUB_URL="https://oauth:${{ secrets.NapCat_GH_TOKEN }}@github.com/moegovs/moegovs.github.io"
 git clone ${GITHUB_URL} temp
 
+# 清空 temp 目录并移动新的文件
 rm -rf temp/*
 mv ./NapCatDocs/src/.vitepress/dist/* temp
 
-cd ./temp
+# 进入 temp 并配置 Git
+cd temp
 
-git config --global init.defaultBranch main
-git remote add origin ${GITHUB_URL}
-git branch -M main
-
+# 仅在克隆仓库的情况下，不再添加远程 origin
 git config --global user.name "Page Build"
 git config --global user.email "test@wumiao.wang"
-git add *
+
+# 提交更改并推送
+git add .
 git commit -m "docs: auto update"
-git push -f
+git push -f origin main
